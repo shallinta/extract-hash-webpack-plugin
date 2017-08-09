@@ -2,7 +2,7 @@
   "name": "extract-hash-webpack-plugin",
   "homepage": "https://github.com/shallinta/extract-hash-webpack-plugin",
   "author": "johnch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "files": [
     "dist"
