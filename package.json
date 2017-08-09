@@ -2,9 +2,11 @@
   "name": "extract-hash-webpack-plugin",
   "homepage": "https://github.com/shallinta/extract-hash-webpack-plugin",
   "author": "johnch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "babel src -d dist",
