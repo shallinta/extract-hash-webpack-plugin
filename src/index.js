@@ -1,11 +1,16 @@
 import path from 'path';
 import fs from 'fs';
 
+const getVersionFileContent = hash => JSON.stringify({
+  version: hash
+});
+
 export default class GenerateVersionFileWebpackPlugin {
-  constructor({ dest, filename = 'version.json', hashLength = 'normal' }) {
+  constructor({ dest, filename = 'version.json', hashLength = 'normal', fn = getVersionFileContent }) {
     this.dest = dest;
     this.filename = filename;
     this.hashLength = hashLength;
+    this.fn = fn;
   }
 
   apply(compiler) {
@@ -25,9 +30,7 @@ export default class GenerateVersionFileWebpackPlugin {
         hash = fullHash;
       }
 
-      fs.writeFileSync(path.resolve(this.dest, this.filename), JSON.stringify({
-        version: hash
-      }));
+      fs.writeFileSync(path.resolve(this.dest, this.filename), this.fn(hash));
     });
   }
 }
