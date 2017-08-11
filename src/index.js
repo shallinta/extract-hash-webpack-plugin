@@ -30,6 +30,12 @@ export default class GenerateVersionFileWebpackPlugin {
         hash = fullHash;
       }
 
+      try {
+        fs.accessSync(this.dest);
+      } catch (err) {
+        fs.mkdir(err.path);
+      }
+
       fs.writeFileSync(path.resolve(this.dest, this.filename), this.fn(hash));
     });
   }

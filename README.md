@@ -8,7 +8,7 @@ You can pass some configuration options to `ExtractHashWebpackPlugin`. Allowed v
 
 - `filename`:  Version file name. Default to `version.json`.
 - `hashLength`: Substring length of compiler hash. Default to value `'normal'` which means the whole `hash` value itself. You can pass a `number` to get a substring of it. Or pass string `'full'` to get value of `fullHash`.
-- `dest`: Version file save path. Default to `process.cwd()`.
+- `dest`: Version file save path. Default to `process.cwd()`. Will do mkdir if path doesn't exist.
 - `fn`: A function to customize content format of version file to be generated. Default to return a json string of hash with the key `version`.
 
 ## Example
