@@ -1,5 +1,6 @@
 import path from 'path';
 import fs from 'fs';
+import mkdirp from 'mkdirp';
 
 const getVersionFileContent = hash => JSON.stringify({
   version: hash
@@ -33,7 +34,7 @@ export default class GenerateVersionFileWebpackPlugin {
       try {
         fs.accessSync(this.dest);
       } catch (err) {
-        fs.mkdir(err.path);
+        mkdirp.sync(this.dest);
       }
 
       fs.writeFileSync(path.resolve(this.dest, this.filename), this.fn(hash));
